@@ -2,12 +2,9 @@ from django.db import models
 
 # Create your models here.
 class Backend(models.Model):
-    title=models.CharField(max_length=200)
-    image=models.ImageField()
-    content=models.TextField()
-    date=models.DateTimeField()
+    id=models.CharField(max_length=200)
+    pw=models.CharField(max_length=200)
+    pw_check=models.CharField(max_length=200)
     def __str__(self):
-        return self.title
-    def date(self):
-        return self.date
+        return self.id
     
