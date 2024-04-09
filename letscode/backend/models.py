@@ -8,10 +8,6 @@ class Backend(models.Model):
     date=models.DateTimeField()
     def __str__(self):
         return self.title
+    def date(self):
+        return self.date
     
-class Comment(models.Model, Backend):
-    def __init__(self, title):
-        self.title=title
-    comment=models.TextField()
-    def __str__(self):
-        return self.title, self.comment

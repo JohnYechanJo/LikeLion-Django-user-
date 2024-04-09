@@ -20,8 +20,8 @@ from frontend import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.home, name="homepage"),
-    path("detail/str:id>", views.detail, name="detail"),
+    path("", views.home, name="home"),
+    path("<str:id>", views.detail, name="detail"),
     path("new/", views.new, name="new"),
     path("login/", views.login, name="login"),
     path("signup/", views.signup, name="signup"),
