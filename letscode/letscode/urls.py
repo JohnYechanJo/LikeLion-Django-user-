@@ -16,14 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from frontend import views
+from frontend import views as front
+from backend import views as back
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.home, name="home"),
-    path("<str:id>", views.detail, name="detail"),
-    path("new/", views.new, name="new"),
-    path("login/", views.login, name="login"),
-    path("signup/", views.signup, name="signup"),
-    path("create/", views.create, name="create"),
+    path("", front.home, name="home"),
+    path("<str:id>", front.detail, name="detail"),
+    path("new/", front.new, name="new"),
+    path("login/", back.login, name="login"),
+    path("signup/", back.signup, name="signup"),
+    path("create/", front.create, name="create"),
+    path("edit/<str:id>", front.edit, name="edit"),
+    path("update/<str:id>", front.update, name="update"),
+    path("delete/<str:id>", front.delete, name="delete")
 ]

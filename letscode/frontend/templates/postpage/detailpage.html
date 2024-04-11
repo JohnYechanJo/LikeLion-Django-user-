@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{frontend.title}}</title>
 </head>
 <body>
-    
+    <h1>{{frontend.title}}</h1>
+    <p>{{frontend.content}}</p>
+    <a href="home">홈페이지</a>
+    <a href="{%url 'edit' frontend.id%}">수정하기</a>
+    <a href="{%url 'delete' frontend.id%}">삭제하기</a>
 </body>
 </html>
