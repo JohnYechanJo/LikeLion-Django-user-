@@ -5,7 +5,6 @@ from frontend import views as front
 
 
 urlpatterns = [
-    path("", front.home, name="home"),
     path("<str:id>", front.detail, name="detail"),
     path("new/", front.new, name="new"),
     path("create/", front.create, name="create"),

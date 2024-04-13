@@ -22,6 +22,8 @@ def create(request):
     new_frontend=Frontend()
     new_frontend.title=request.POST['title']
     new_frontend.content=request.POST['content']
+    new_frontend.image=request.FILES['image']
+    new_frontend.pub_date=timezone.now()
     new_frontend.save()
     return redirect("detail", new_frontend.id)
 ##############################################

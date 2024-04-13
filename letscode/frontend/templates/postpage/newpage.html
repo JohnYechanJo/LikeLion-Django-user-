@@ -3,9 +3,10 @@
     <h1>
         게시물을 입력해주세요!
     </h1>
-    <form action="{%url 'create'%}" method="post">
+    <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
         {%csrf_token%}
         <p>제목:<input type="text" name="title" required autofocus/></p>
+        <p>사진<input type="file" name="image"></p>
         <textarea style="resize: none;" name = "content" id="" cols="30" rows="10" required autofocus></textarea>
         <br>
         <input type="submit" value="제출하기">

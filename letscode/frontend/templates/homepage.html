@@ -5,7 +5,9 @@
     {%for post in posts%}
     <div>
         <a href="{%url 'detail' post.id %}">{{post.title}}</a>
-        {{post.content}}
+        <p>{{post.image}}</p>
+        <p>{{post.content}}</p>
+        <p>작성 날짜: {{post.pub_date}}</p>
     </div>
     <hr/>
     <br>

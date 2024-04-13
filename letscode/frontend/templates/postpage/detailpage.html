@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {%block content%}
     <h1>{{frontend.title}}</h1>
+    <p><img src "{{frontend.image.url}}"></p>
     <p>{{frontend.content}}</p>
+    <p>작성 날짜: {{frontend.pub_date}}</p>
     <a href="{%url 'home' %}">홈페이지</a>
     <a href="{%url 'edit' frontend.id%}">수정하기</a>
     <a href="{%url 'delete' frontend.id%}">삭제하기</a>
-{%endblock%}
+{%endblock%} 
