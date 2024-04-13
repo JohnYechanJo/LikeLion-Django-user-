@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{%block content%}
     <h1>
-        
+        게시물을 수정해주세요!
     </h1>
     <form action="{%url 'update' frontend.id%}" method="post">
         {%csrf_token%}
         <p>제목:<input type="text" name="title" value="{{frontend.title}}"></p>
-        <textarea name = "content" id="" cols="30" rows="10" value="{{frontend.content}}"></textarea>
+        <textarea style="resize: none;" name = "content" id="" cols="30" rows="10">{{frontend.content}}</textarea>
         <br>
         <button type="submit">저장하기</button>
     </form>
-</body>
-</html>
+{%endblock%}

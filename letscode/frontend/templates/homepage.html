@@ -1,14 +1,15 @@
-
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>모각코</title>
-</head>
-<body>
+{% extends "base.html" %}
+{%block content%}
     <h1> 모각코 모집 게시판 </h1>
     <br>
-    
-</body>
-</html>
+    {%for post in posts%}
+    <div>
+        <a href="{%url 'detail' post.id %}">{{post.title}}</a>
+        {{post.content}}
+    </div>
+    <hr/>
+    <br>
+    {% endfor%}
+    <br>
+    <a href="{%url 'new'%}">게시물 추가</a>
+{%endblock%}

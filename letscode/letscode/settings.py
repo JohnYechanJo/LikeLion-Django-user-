@@ -56,7 +56,7 @@ ROOT_URLCONF = "letscode.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["letscode/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
