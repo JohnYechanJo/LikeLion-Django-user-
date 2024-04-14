@@ -11,6 +11,7 @@ def home(request):
 def new(request):
     title=request.GET.get("title")
     content=request.GET.get("content")
+    image=request.GET.get("image")
     return render(request, "postpage/newpage.html", {"title":title, "content":content})
 #######################################################################################
 #detailpage.html을 보여줌
@@ -36,6 +37,7 @@ def update(request, id):
     update_frontend = get_object_or_404(Frontend, pk = id)
     update_frontend.title=request.POST["title"]
     update_frontend.content=request.POST["content"]
+    update_frontend.pub_date=timezone.now()
     update_frontend.save()
     return redirect("detail", update_frontend.id)
 #################################################
@@ -44,3 +46,11 @@ def delete(request, id):
     delete_frontend = Frontend.objects.get(id = id)
     delete_frontend.delete()
     return redirect("home")
+
+def login(request):
+    
+    return render(request, "login.html")
+
+def signup(request):
+    
+    return render(request, "signup.html")

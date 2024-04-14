@@ -1,16 +1,22 @@
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponseNotFound
-from frontend import views as front
+from frontend.views import *
 
 
 urlpatterns = [
-    path("<str:id>", front.detail, name="detail"),
-    path("new/", front.new, name="new"),
-    path("create/", front.create, name="create"),
-    path("edit/<str:id>", front.edit, name="edit"),
-    path("update/<str:id>", front.update, name="update"),
-    path("delete/<str:id>", front.delete, name="delete"),
+    path("<str:id>", detail, name="detail"),
+    #생성
+    path("new/", new, name="new"),
+    path("create/", create, name="create"),
+    #수정
+    path("edit/<str:id>", edit, name="edit"),
+    path("update/<str:id>", update, name="update"),
+    #삭제
+    path("delete/<str:id>", delete, name="delete"),
+    #유저
+    path("login/", login, name="login"),
+    path("signup/", signup, name="signup"),
     
     path('favicon.ico', lambda request: HttpResponseNotFound()),
 ]

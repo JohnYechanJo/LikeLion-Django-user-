@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {%block content%}
     <h1>{{frontend.title}}</h1>
-    <p><img src "{{frontend.image.url}}"></p>
+    <p><img src="{{frontend.image.url}}" alt="" width="100%" height="50%"></p>
     <p>{{frontend.content}}</p>
     <p>작성 날짜: {{frontend.pub_date}}</p>
     <a href="{%url 'home' %}">홈페이지</a>
