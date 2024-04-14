@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponseNotFound
 from frontend.views import *
@@ -14,9 +13,6 @@ urlpatterns = [
     path("update/<str:id>", update, name="update"),
     #삭제
     path("delete/<str:id>", delete, name="delete"),
-    #유저
-    path("login/", login, name="login"),
-    path("signup/", signup, name="signup"),
-    
+
     path('favicon.ico', lambda request: HttpResponseNotFound()),
 ]

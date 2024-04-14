@@ -1,18 +1,21 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+from django.core.paginator import Paginator
 from .models import Frontend
 from django.http import HttpResponseNotFound
 # Create your views here.
 
 def home(request):
     posts = Frontend.objects.all()
+    paginator=Paginator(posts,3)
+    page=request.GET.get()
     return render(request, "homepage.html", {"posts": posts})
 #############################################################
 def new(request):
     title=request.GET.get("title")
     content=request.GET.get("content")
     image=request.GET.get("image")
-    return render(request, "postpage/newpage.html", {"title":title, "content":content})
+    return render(request, "postpage/newpage.html", {"title":title, "content":content, "image":image})
 #######################################################################################
 #detailpage.html을 보여줌
 def detail(request, id):
@@ -46,11 +49,3 @@ def delete(request, id):
     delete_frontend = Frontend.objects.get(id = id)
     delete_frontend.delete()
     return redirect("home")
-
-def login(request):
-    
-    return render(request, "login.html")
-
-def signup(request):
-    
-    return render(request, "signup.html")
